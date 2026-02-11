@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simtopia - Space Trade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand__icon">SIM</span>
+          <div>
+            <h1>Simtopia</h1>
+            <p>Trade routes across a living galaxy</p>
+          </div>
+        </div>
+        <div class="status" id="playerStatus">Loading credits...</div>
+      </header>
+
+      <main class="layout">
+        <section class="panel panel--left">
+          <div class="panel__header">
+            <h2>Planet Index</h2>
+            <input id="planetSearch" type="search" placeholder="Search planets" />
+          </div>
+          <div id="planetList" class="planet-list"></div>
+        </section>
+
+        <section class="panel panel--center">
+          <div class="panel__header">
+            <h2>Galaxy Map</h2>
+            <div class="legend">
+              <span><i class="dot dot--earth"></i>Earthlike</span>
+              <span><i class="dot dot--gas"></i>Gas Giant</span>
+              <span><i class="dot dot--lava"></i>Lava</span>
+              <span><i class="dot dot--rock"></i>Rock</span>
+              <span><i class="dot dot--ice"></i>Ice</span>
+            </div>
+          </div>
+          <div class="map-shell">
+            <canvas id="mapCanvas" width="900" height="560"></canvas>
+            <div class="map-controls">
+              <button class="map-button" id="zoomIn" type="button" aria-label="Zoom in">+</button>
+              <button class="map-button" id="zoomOut" type="button" aria-label="Zoom out">-</button>
+              <button class="map-button map-button--wide" id="zoomReset" type="button">Reset</button>
+            </div>
+          </div>
+          <div class="map-hint">Drag to pan, scroll to zoom, click a planet to inspect its market.</div>
+        </section>
+
+        <section class="panel panel--right">
+          <div class="panel__header">
+            <h2 id="marketTitle">Market</h2>
+          </div>
+          <div id="marketList" class="market-list"></div>
+          <div class="panel__header panel__header--compact">
+            <h3>Top Trade Routes</h3>
+          </div>
+          <div id="routesList" class="routes-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
